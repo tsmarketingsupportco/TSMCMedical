@@ -59,7 +59,7 @@ const NewsDetail = () => {
         
         <p>We are proud to have been part of this important community initiative and look forward to continuing our support for healthcare awareness events in the future.</p>
       `,
-      image: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&q=80&w=800',
+      image: 'https://udqsfwzjjd.ufs.sh/f/sRbSE3JoMbzKH7QKwO9K17E9sMxUtcbXNFwf3gL6QR58WJhT',
       date: '2017-11-06',
       category: 'company-update',
       author: 'TSMC Team',
@@ -334,14 +334,14 @@ const NewsDetail = () => {
   const handleShare = (platform: string) => {
     const encodedUrl = encodeURIComponent(shareUrl);
     const encodedTitle = encodeURIComponent(shareTitle);
-    
+
     const shareUrls = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
       twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
       linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`,
       email: `mailto:?subject=${encodedTitle}&body=Check out this article: ${encodedUrl}`
     };
-    
+
     if (platform in shareUrls) {
       window.open(shareUrls[platform as keyof typeof shareUrls], '_blank', 'width=600,height=400');
     }
@@ -368,7 +368,7 @@ const NewsDetail = () => {
   return (
     <div className="bg-gray-50 min-h-screen">
       <div ref={topRef} />
-      
+
       {/* Navigation */}
       <div className="bg-white border-b">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -415,7 +415,7 @@ const NewsDetail = () => {
                 <Calendar className="h-5 w-5 mr-2" />
                 <span>{formatDate(item.date)}</span>
               </div>
-              
+
               {newsItem && (
                 <>
                   <div className="flex items-center">
@@ -508,18 +508,18 @@ const NewsDetail = () => {
             className="prose prose-lg max-w-none"
           >
             {newsItem && (
-              <div 
+              <div
                 dangerouslySetInnerHTML={{ __html: newsItem.content }}
                 className="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-700 prose-li:text-gray-700 prose-strong:text-gray-900"
               />
             )}
-            
+
             {eventItem && (
               <div className="space-y-6">
                 <div className="prose prose-lg max-w-none">
                   <p className="text-gray-700 text-lg leading-relaxed">{eventItem.description}</p>
                 </div>
-                
+
                 {eventItem.capacity && eventItem.registered && (
                   <div className="bg-gray-50 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">Registration Status</h3>
@@ -538,7 +538,7 @@ const NewsDetail = () => {
                     </p>
                   </div>
                 )}
-                
+
                 {eventItem.registrationUrl && (
                   <div className="bg-indigo-50 border border-indigo-200 rounded-lg p-6">
                     <h3 className="text-lg font-semibold text-indigo-900 mb-2">Ready to Join?</h3>
