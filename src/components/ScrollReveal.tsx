@@ -6,7 +6,7 @@ import { motion, useReducedMotion, type Variants } from 'framer-motion';
  * -----------
  * Wraps children in a Framer Motion element that animates into view when the
  * element enters the viewport (`whileInView`). Automatically respects the user's
- * `prefers-reduced-motion` OS setting via Framer's `useReducedMotion()` hook —
+ * `prefers-reduced-motion` OS setting via Framer's `useReducedMotion()` hook:
  * when reduced-motion is preferred the element is rendered at full opacity
  * instantly, with no translate/scale animation.
  *
@@ -84,7 +84,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
           transition: {
             duration,
             delay,
-            ease: [0.22, 1, 0.36, 1], // custom ease — snappy entrance
+            ease: [0.22, 1, 0.36, 1], // custom ease: snappy entrance
           },
         },
       };

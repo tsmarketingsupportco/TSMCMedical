@@ -1,4 +1,4 @@
-/** Featured client / partner logos — meaningful alt text for accessibility */
+/** Featured client and partner logos: meaningful alt text for accessibility */
 export const featuredClients = [
   {
     url: 'https://udqsfwzjjd.ufs.sh/f/sRbSE3JoMbzKBiHwwwG0RprZaE2csh7WNi9UelLJkbYy3XHt',

@@ -9,7 +9,7 @@ import { useSEO } from '../hooks/useSEO';
 
 const Contact = () => {
   useSEO({
-    title: 'Contact Us — Request a Quote',
+    title: 'Contact Us: Request a Quote',
     description: 'Get in touch with TSMC Medical Supply. Request a product quote, ask about medical equipment, or speak with our team of healthcare supply experts.',
   });
 

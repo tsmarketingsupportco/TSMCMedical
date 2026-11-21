@@ -9,7 +9,7 @@ import { useSEO } from '../hooks/useSEO';
 
 const TSMC = () => {
   useSEO({
-    title: 'Products — Medical Equipment & Diagnostic Solutions',
+    title: 'Products: Medical Equipment & Diagnostic Solutions',
     description: 'Browse TSMC Medical Supply\'s full catalog of diagnostic equipment, laboratory instruments, and healthcare devices. Filter by category and find the right solution for your facility.',
   });
 
@@ -87,47 +87,49 @@ const TSMC = () => {
       </div>
 
       {/* Features Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <Stethoscope className="h-12 w-12 text-indigo-600 mb-4" aria-hidden />
-            <h3 className="text-xl font-semibold mb-2">Quality Equipment</h3>
-            <p className="text-gray-600">State-of-the-art medical equipment from trusted manufacturers.</p>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <Stethoscope className="h-12 w-12 text-black mb-6" aria-hidden />
+            <h3 className="text-xl font-bold text-black mb-3">Quality Equipment</h3>
+            <p className="text-black leading-relaxed">State-of-the-art medical equipment from trusted manufacturers.</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <Heart className="h-12 w-12 text-indigo-600 mb-4" aria-hidden />
-            <h3 className="text-xl font-semibold mb-2">Patient Care</h3>
-            <p className="text-gray-600">Supporting healthcare professionals in delivering excellent patient care.</p>
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <Heart className="h-12 w-12 text-black mb-6" aria-hidden />
+            <h3 className="text-xl font-bold text-black mb-3">Patient Care</h3>
+            <p className="text-black leading-relaxed">Supporting healthcare professionals in delivering excellent patient care.</p>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-            <ShieldCheck className="h-12 w-12 text-indigo-600 mb-4" aria-hidden />
-            <h3 className="text-xl font-semibold mb-2">Certified Products</h3>
-            <p className="text-gray-600">All products meet or exceed industry standards and certifications.</p>
+          <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <ShieldCheck className="h-12 w-12 text-black mb-6" aria-hidden />
+            <h3 className="text-xl font-bold text-black mb-3">Certified Products</h3>
+            <p className="text-black leading-relaxed">All products meet or exceed industry standards and certifications.</p>
           </div>
         </div>
       </div>
 
       {/* Products Section */}
-      <div className="bg-white py-16" id="products">
+      <div className="bg-white py-20 sm:py-24" id="products">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-extrabold text-gray-900">Our Products</h2>
-            <p className="mt-4 text-xl text-gray-600">Discover our comprehensive range of medical equipment</p>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-black">Our Products</h2>
+            <p className="mt-4 text-xl text-black max-w-2xl mx-auto">
+              Discover our comprehensive range of medical equipment and protective apparel
+            </p>
 
-            <div className="mt-8 max-w-md mx-auto">
+            <div className="mt-10 max-w-lg mx-auto">
               <label htmlFor="product-search" className="sr-only">
                 Search products
               </label>
               <div className="relative">
                 <Search
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 h-5 w-5"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 h-5 w-5"
                   aria-hidden
                 />
                 <input
                   id="product-search"
                   type="search"
-                  placeholder="Search products..."
-                  className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+                  placeholder="Search products by name, category, or spec..."
+                  className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg text-black placeholder-gray-500 focus:ring-2 focus:ring-black focus:border-black text-base shadow-sm"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   aria-describedby="product-results-count"
@@ -137,17 +139,17 @@ const TSMC = () => {
 
             {/* Category chips */}
             <div
-              className="mt-6 flex flex-wrap justify-center gap-2"
+              className="mt-8 flex flex-wrap justify-center gap-3"
               role="group"
               aria-label="Filter by category"
             >
               <button
                 type="button"
                 onClick={() => setCategory('')}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
+                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 ${
                   !activeCategory
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-black text-white shadow-md'
+                    : 'bg-white text-black hover:bg-gray-100 border border-gray-300'
                 }`}
                 aria-pressed={!activeCategory}
               >
@@ -158,10 +160,10 @@ const TSMC = () => {
                   key={category}
                   type="button"
                   onClick={() => setCategory(category)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 ${
+                  className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 ${
                     activeCategory === category
-                      ? 'bg-indigo-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      ? 'bg-black text-white shadow-md'
+                      : 'bg-white text-black hover:bg-gray-100 border border-gray-300'
                   }`}
                   aria-pressed={activeCategory === category}
                 >
@@ -172,7 +174,7 @@ const TSMC = () => {
 
             <p
               id="product-results-count"
-              className="mt-4 text-sm text-gray-600"
+              className="mt-6 text-sm text-black font-medium"
               aria-live="polite"
             >
               Showing {filteredProducts.length} of {products.length} products
@@ -181,16 +183,16 @@ const TSMC = () => {
           </div>
 
           {filteredProducts.length === 0 ? (
-            <div className="text-center py-16 px-4 bg-gray-50 rounded-xl border border-dashed border-gray-300">
-              <p className="text-lg font-medium text-gray-900">No products match your filters</p>
-              <p className="mt-2 text-gray-600">
+            <div className="text-center py-20 px-4 bg-gray-50 rounded-2xl border border-dashed border-gray-300">
+              <p className="text-xl font-bold text-black">No products match your filters</p>
+              <p className="mt-2 text-black">
                 Try a different search term or category, or view the full catalog.
               </p>
               {hasActiveFilters && (
                 <button
                   type="button"
                   onClick={clearFilters}
-                  className="mt-6 inline-flex items-center px-4 py-2 rounded-md bg-indigo-600 text-white font-medium hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  className="mt-6 inline-flex items-center px-6 py-2.5 rounded-lg bg-black text-white font-semibold hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 shadow-sm"
                 >
                   <X className="h-4 w-4 mr-2" aria-hidden />
                   Clear filters
@@ -198,33 +200,33 @@ const TSMC = () => {
               )}
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
               {filteredProducts.map((product) => (
                 <article
                   key={product.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden transition-shadow duration-300 hover:shadow-xl"
+                  className="bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col"
                 >
-                  <div className="relative h-48 bg-gray-100">
+                  <div className="relative h-56 bg-gray-50 flex items-center justify-center p-4 border-b border-gray-100">
                     <ProgressiveImage
                       src={product.image}
                       alt={product.name}
-                      className="h-48"
-                      height="192px"
+                      className="h-56 object-contain"
+                      height="224px"
                       width="400px"
                     />
-                    <div className="absolute top-0 right-0 bg-indigo-600 text-white px-3 py-1 rounded-bl-lg text-sm">
+                    <div className="absolute top-0 right-0 bg-black text-white px-3.5 py-1.5 rounded-bl-xl text-xs font-bold uppercase tracking-wider shadow-sm">
                       {product.category}
                     </div>
                   </div>
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">{product.name}</h3>
-                    <p className="text-gray-600 mb-4 line-clamp-3">{product.description}</p>
+                  <div className="p-8 flex flex-col flex-grow">
+                    <h3 className="text-xl font-bold text-black mb-3">{product.name}</h3>
+                    <p className="text-black mb-6 line-clamp-3 leading-relaxed flex-grow">{product.description}</p>
                     <Link
                       to={`/tsmc/products/${product.slug}`}
-                      className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium"
+                      className="inline-flex items-center text-black hover:text-indigo-600 font-semibold group mt-auto"
                     >
                       Learn More
-                      <ArrowRight className="ml-2 h-4 w-4" aria-hidden />
+                      <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden />
                     </Link>
                   </div>
                 </article>

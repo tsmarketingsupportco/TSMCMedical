@@ -1,5 +1,5 @@
 /**
- * Canonical contact details — single source of truth.
+ * Canonical contact details: single source of truth.
  * Import into Footer, Home CTA band, ProductDetail, etc.
  */
 export const CONTACT = {

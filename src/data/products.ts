@@ -964,6 +964,67 @@ export const products = [
       'Memory': '500,000 Result Storage',
       'Interface': 'Multilingual'
     }
+  },
+  {
+    id: 'airfan-jackets',
+    name: 'Airfan Jackets',
+    slug: 'airfan-jackets',
+    image: 'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=1200',
+    images: [
+      'https://images.unsplash.com/photo-1584634731339-252c581abfc5?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1583947215259-38e31be8751f?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&q=80&w=1200',
+      'https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&q=80&w=1200'
+    ],
+    description: 'Medical grade airfan cooling jacket engineered to prevent heat stress and physical fatigue for healthcare professionals in protective apparel.',
+    category: 'Others',
+    overview: 'Airfan Jackets provide active micro-climate cooling for healthcare professionals, emergency medical teams, and laboratory technicians working in personal protective equipment or warm clinical environments. Integrated dual brushless cooling fans circulate filtered ambient air across the body to accelerate moisture evaporation and regulate core temperature during prolonged shifts.',
+    features: [
+      'Dual whisper-quiet brushless micro-fans with operating noise below 38 dB',
+      '4-level adjustable airflow controller with tactile push-button operation',
+      'High-capacity 12-hour rechargeable medical-grade lithium-ion power pack',
+      'Fluid-repellent, anti-static, antimicrobial medical fabric shell',
+      'Washable garment construction with quick-detach fan and battery modules',
+      'Ergonomic cut engineered to fit comfortably under PPE isolation gowns',
+      'Particulate intake filter guards preventing contamination in clinical spaces',
+      'USB-C rapid charging system with digital battery percentage display'
+    ],
+    specifications: {
+      'Airflow Volume': 'Up to 65 L/s',
+      'Battery Capacity': '10,000 mAh (3.7V / 37Wh)',
+      'Runtime': '8 to 16 hours continuous operation',
+      'Noise Level': '35 to 38 dB',
+      'Shell Material': '100% Medical Grade Polyester',
+      'Garment Weight': '420g',
+      'Battery Weight': '210g',
+      'Sizes Available': 'S, M, L, XL, 2XL, 3XL'
+    },
+    technicalSpecs: {
+      'Fan Motor Type': 'Brushless DC micro-turbine',
+      'Speed Settings': 'Low (25 L/s), Medium (40 L/s), High (55 L/s), Turbo (65 L/s)',
+      'Input Voltage': '5V / 2A via USB-C',
+      'Recharge Time': 'Approximately 3.5 hours',
+      'Filter Rating': 'Dual electrostatic particulate pre-filters',
+      'Operating Temperature': '0°C to 45°C',
+      'Fabric Treatment': 'Antimicrobial and fluid-barrier finish',
+      'Static Dissipation': 'EN 1149 certified anti-static properties'
+    },
+    packageContents: [
+      'Airfan Jacket garment shell',
+      '2 Ultra-quiet brushless fan modules',
+      '1 Medical-grade rechargeable power pack',
+      '1 USB-C fast charging cable and adapter',
+      '2 Replaceable particulate intake filter covers',
+      '1 User manual and maintenance guide'
+    ],
+    certifications: [
+      'CE Certified',
+      'RoHS Compliant',
+      'ISO 13485 Manufacturing Standard',
+      'EN 1149 Anti-static Standard'
+    ],
+    storage: 'Store in a clean, dry clinical area between -10°C and 40°C. Detach fan units and power pack before washing garment shell.',
+    shelfLife: 'Garment shell: 3 years under standard healthcare laundering conditions. Battery pack: 500 charge cycles.'
   }
 ];
 

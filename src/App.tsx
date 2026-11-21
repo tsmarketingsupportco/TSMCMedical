@@ -12,8 +12,6 @@ const TSMC = lazy(() => import('./pages/TSMC'));
 const About = lazy(() => import('./pages/About'));
 const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
-const News = lazy(() => import('./pages/News'));
-const NewsDetail = lazy(() => import('./pages/NewsDetail'));
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -93,8 +91,6 @@ function App() {
                 <Route path="/about" element={<About />} />
                 <Route path="/tsmc/products/:slug" element={<ProductDetail />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/news" element={<News />} />
-                <Route path="/news/:id" element={<NewsDetail />} />
               </Routes>
             </Suspense>
           </AnimatedTransition>

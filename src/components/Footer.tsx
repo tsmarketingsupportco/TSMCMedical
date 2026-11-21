@@ -33,11 +33,6 @@ const Footer = () => {
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link to="/news" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  News &amp; Events
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -51,8 +46,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/tsmc?category=Diagnostics" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Diagnostics
+                <Link to="/tsmc?category=Diagnostic" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Diagnostic
+                </Link>
+              </li>
+              <li>
+                <Link to="/tsmc?category=Diabetes%20Care" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Diabetes Care
                 </Link>
               </li>
               <li>
@@ -61,8 +61,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/tsmc?category=Medical%20Devices" className="text-sm text-gray-300 hover:text-white transition-colors">
-                  Medical Devices
+                <Link to="/tsmc?category=Others" className="text-sm text-gray-300 hover:text-white transition-colors">
+                  Others
                 </Link>
               </li>
             </ul>

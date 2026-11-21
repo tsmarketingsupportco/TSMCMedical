@@ -9,6 +9,7 @@ import {
   Microscope,
   FlaskConical,
   Activity,
+  Wind,
 } from 'lucide-react';
 import { BRAND } from '../data/brand';
 import { CONTACT } from '../data/contact';
@@ -27,6 +28,7 @@ const categoryIcons: Record<string, React.ElementType> = {
   Diagnostic: Microscope,
   'Diabetes Care': Activity,
   Laboratory: FlaskConical,
+  Others: Wind,
 };
 
 const featuredQuote = {
@@ -36,7 +38,7 @@ const featuredQuote = {
 
 const Home = () => {
   useSEO({
-    title: 'TSMC Medical Supply — Medical Equipment & Supplies',
+    title: 'TSMC Medical Supply: Medical Equipment & Supplies',
     description: 'TSMC Medical Supply, a division of TwinJ3 Sales and Marketing Corp., provides diagnostic equipment, laboratory instruments, and medical devices to healthcare professionals across the Philippines.',
   });
 
@@ -99,17 +101,17 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Proof strip — static, scannable */}
-      <section className="bg-indigo-600 py-12" aria-labelledby="proof-heading">
+      {/* Proof strip: static, scannable */}
+      <section className="bg-indigo-600 py-16" aria-labelledby="proof-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 id="proof-heading" className="sr-only">
             Our impact at a glance
           </h2>
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {proofMetrics.map((item) => (
               <div key={item.label} className="text-center text-white">
-                <div className="text-2xl sm:text-3xl font-bold">{item.value}</div>
-                <div className="mt-1 text-sm sm:text-base text-indigo-100">{item.label}</div>
+                <div className="text-3xl sm:text-4xl font-extrabold text-white">{item.value}</div>
+                <div className="mt-2 text-sm sm:text-base text-white font-medium">{item.label}</div>
               </div>
             ))}
           </div>
@@ -117,36 +119,40 @@ const Home = () => {
       </section>
 
       {/* Category entry */}
-      <section className="py-16" aria-labelledby="categories-heading">
+      <section className="py-20 sm:py-24" aria-labelledby="categories-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 id="categories-heading" className="text-3xl font-extrabold text-gray-900">
+          <div className="text-center mb-16">
+            <h2 id="categories-heading" className="text-3xl sm:text-4xl font-extrabold text-black">
               Browse by category
             </h2>
-            <p className="mt-3 text-lg text-gray-600">
-              Explore our catalog of medical equipment and diagnostic solutions
+            <p className="mt-4 text-lg text-black max-w-2xl mx-auto">
+              Explore our catalog of medical equipment, diagnostic solutions, and protective wear
             </p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {productCategories.map((category) => {
               const Icon = categoryIcons[category] ?? Microscope;
               return (
                 <Link
                   key={category}
                   to={`/tsmc?category=${encodeURIComponent(category)}`}
-                  className="group bg-white rounded-xl shadow-lg border border-gray-200 p-6 hover:border-indigo-300 hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="group bg-white rounded-xl shadow-lg border border-gray-200 p-8 hover:border-black hover:shadow-xl transition-all focus:outline-none focus:ring-2 focus:ring-black flex flex-col justify-between"
                 >
-                  <Icon
-                    className="h-10 w-10 text-indigo-600 mb-4 group-hover:scale-105 transition-transform"
-                    aria-hidden
-                  />
-                  <h3 className="text-xl font-semibold text-gray-900">{category}</h3>
-                  <p className="mt-2 text-gray-600 text-sm">
-                    {categoryCounts[category]} product{categoryCounts[category] !== 1 ? 's' : ''}
-                  </p>
-                  <span className="mt-4 inline-flex items-center text-indigo-600 font-medium text-sm">
+                  <div>
+                    <div className="w-14 h-14 rounded-xl bg-gray-100 flex items-center justify-center mb-6 group-hover:bg-black transition-colors">
+                      <Icon
+                        className="h-7 w-7 text-black group-hover:text-white transition-colors"
+                        aria-hidden
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold text-black">{category}</h3>
+                    <p className="mt-3 text-black text-sm font-medium">
+                      {categoryCounts[category] ?? 0} product{(categoryCounts[category] ?? 0) !== 1 ? 's' : ''}
+                    </p>
+                  </div>
+                  <span className="mt-6 inline-flex items-center text-black font-semibold text-sm group-hover:translate-x-1 transition-transform">
                     View products
-                    <ArrowRight className="ml-1 h-4 w-4" aria-hidden />
+                    <ArrowRight className="ml-1.5 h-4 w-4" aria-hidden />
                   </span>
                 </Link>
               );
@@ -155,56 +161,56 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured products — static grid, no carousel */}
-      <section className="bg-white py-16" aria-labelledby="featured-heading">
+      {/* Featured products: static grid, no carousel */}
+      <section className="bg-white py-20 sm:py-24" aria-labelledby="featured-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 id="featured-heading" className="text-3xl font-extrabold text-gray-900">
+          <div className="text-center mb-16">
+            <h2 id="featured-heading" className="text-3xl sm:text-4xl font-extrabold text-black">
               Featured products
             </h2>
-            <p className="mt-3 text-lg text-gray-600">
-              A selection from our medical equipment catalog
+            <p className="mt-4 text-lg text-black max-w-2xl mx-auto">
+              A curated selection from our medical equipment and protective apparel catalog
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {previewProducts.map((product) => (
               <article
                 key={product.id}
-                className="bg-gray-50 rounded-xl border border-gray-200 overflow-hidden flex flex-col"
+                className="bg-white rounded-xl border border-gray-200 shadow-md hover:shadow-lg transition-all overflow-hidden flex flex-col"
               >
-                <div className="h-48 bg-gradient-to-br from-indigo-50 to-blue-50 flex items-center justify-center p-4">
+                <div className="h-56 bg-gray-50 flex items-center justify-center p-6 border-b border-gray-100">
                   <img
                     src={product.image}
                     alt={product.name}
                     className="max-h-full max-w-full object-contain"
                     width={320}
-                    height={192}
+                    height={224}
                     loading="lazy"
                   />
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <span className="text-xs font-semibold text-indigo-600 uppercase tracking-wide">
+                <div className="p-8 flex flex-col flex-grow">
+                  <span className="text-xs font-bold text-black uppercase tracking-wider">
                     {product.category}
                   </span>
-                  <h3 className="mt-2 text-lg font-bold text-gray-900">{product.name}</h3>
-                  <p className="mt-2 text-sm text-gray-600 line-clamp-3 flex-grow">
+                  <h3 className="mt-3 text-xl font-bold text-black">{product.name}</h3>
+                  <p className="mt-3 text-sm text-black leading-relaxed line-clamp-3 flex-grow">
                     {product.description}
                   </p>
                   <Link
                     to={`/tsmc/products/${product.slug}`}
-                    className="mt-4 inline-flex items-center text-indigo-600 hover:text-indigo-700 font-medium text-sm"
+                    className="mt-6 inline-flex items-center text-black hover:text-indigo-600 font-semibold text-sm group"
                   >
                     Learn more
-                    <ArrowRight className="ml-1 h-4 w-4" aria-hidden />
+                    <ArrowRight className="ml-1.5 h-4 w-4 group-hover:translate-x-1 transition-transform" aria-hidden />
                   </Link>
                 </div>
               </article>
             ))}
           </div>
-          <div className="text-center mt-10">
+          <div className="text-center mt-14">
             <Link
               to="/tsmc"
-              className="inline-flex items-center text-indigo-600 hover:text-indigo-700 font-semibold text-lg"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-black text-white hover:bg-gray-800 font-semibold text-base transition-colors shadow-md"
             >
               View all products
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden />
@@ -213,22 +219,22 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Trust — one quote + logos */}
-      <section className="py-16 bg-gray-50" aria-labelledby="trust-heading">
+      {/* Trust: quote and partner logos */}
+      <section className="py-20 sm:py-24 bg-gray-50" aria-labelledby="trust-heading">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 id="trust-heading" className="text-3xl font-extrabold text-gray-900">
+          <div className="text-center mb-16">
+            <h2 id="trust-heading" className="text-3xl sm:text-4xl font-extrabold text-black">
               Trusted across the Philippines
             </h2>
           </div>
-          <blockquote className="max-w-3xl mx-auto bg-white rounded-xl shadow-lg border border-gray-200 p-8 text-center">
-            <div className="inline-flex items-center px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm font-semibold mb-4">
-              <Award className="h-4 w-4 mr-2" aria-hidden />
+          <blockquote className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-10 sm:p-14 text-center">
+            <div className="inline-flex items-center px-4 py-1.5 bg-gray-100 text-black rounded-full text-sm font-semibold mb-6">
+              <Award className="h-4 w-4 mr-2 text-black" aria-hidden />
               {featuredQuote.impact}
             </div>
-            <p className="text-lg text-gray-700 italic leading-relaxed">&ldquo;{featuredQuote.text}&rdquo;</p>
-            <footer className="mt-4 text-sm text-gray-500">
-              — Healthcare partners nationwide
+            <p className="text-lg sm:text-xl text-black leading-relaxed font-normal">&ldquo;{featuredQuote.text}&rdquo;</p>
+            <footer className="mt-6 text-sm text-black font-semibold">
+              Healthcare partners nationwide
             </footer>
           </blockquote>
 

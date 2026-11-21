@@ -34,7 +34,7 @@ export function useSEO({ title, description }: SEOProps): void {
 
     // Restore to site default on unmount
     return () => {
-      document.title = `${SITE_SUFFIX} — Medical Equipment & Supplies`;
+      document.title = `${SITE_SUFFIX}: Medical Equipment & Supplies`;
     };
   }, [title, description]);
 }

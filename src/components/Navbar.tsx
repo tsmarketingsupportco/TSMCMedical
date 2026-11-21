@@ -88,7 +88,6 @@ const Navbar = () => {
             {[
               { path: '/about', label: 'About Us' },
               { path: '/tsmc', label: 'Products' },
-              { path: '/news', label: 'News' },
             ].map(({ path, label }) => (
               <Link
                 key={path}
@@ -154,7 +153,6 @@ const Navbar = () => {
           {[
             { path: '/about', label: 'About Us' },
             { path: '/tsmc', label: 'Products' },
-            { path: '/news', label: 'News' },
           ].map(({ path, label }, idx) => (
             <Link
               key={path}

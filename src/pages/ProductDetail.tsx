@@ -20,7 +20,7 @@ const ProductDetail = () => {
 
   // Dynamic SEO based on product data
   useSEO({
-    title: product ? `${product.name} — ${product.category}` : 'Product Detail',
+    title: product ? `${product.name}: ${product.category}` : 'Product Detail',
     description: product?.description,
   });
 
@@ -136,11 +136,11 @@ const ProductDetail = () => {
       <div ref={topRef} />
       
       {/* Navigation */}
-      <div className="bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
           <button
             onClick={() => navigate('/tsmc')}
-            className="inline-flex items-center text-gray-600 hover:text-gray-900"
+            className="inline-flex items-center text-black hover:text-gray-700 font-semibold text-sm transition-colors"
           >
             <ArrowLeft className="h-5 w-5 mr-2" />
             Back to Products
@@ -149,12 +149,12 @@ const ProductDetail = () => {
       </div>
 
       {/* Product Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-start">
           <div className="relative">
             {/* Image carousel */}
             <div
-              className="aspect-w-4 aspect-h-3 rounded-lg overflow-hidden bg-gray-100 relative"
+              className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-md relative"
               aria-roledescription="carousel"
               aria-label="Product images"
             >
@@ -169,18 +169,18 @@ const ProductDetail = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.3 }}
-                  className="relative w-full h-full"
+                  className="relative w-full h-full flex items-center justify-center p-6 bg-gray-50"
                 >
                   <button
                     ref={mainImageBtnRef}
-                    className="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    className="w-full h-full cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-inset focus:ring-black flex items-center justify-center"
                     onClick={() => setLightboxOpen(true)}
                     aria-label={`Expand image: ${product.name}, view ${currentImageIndex + 1} of ${productImages.length}`}
                   >
                     <img
                       src={productImages[currentImageIndex]}
-                      alt={`${product.name} – view ${currentImageIndex + 1} of ${productImages.length}`}
-                      className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                      alt={`${product.name} - view ${currentImageIndex + 1} of ${productImages.length}`}
+                      className="w-full h-full object-contain transition-transform duration-300 hover:scale-105"
                     />
                   </button>
                 </motion.div>
@@ -190,17 +190,17 @@ const ProductDetail = () => {
                 <>
                   <button
                     onClick={previousImage}
-                    className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black rounded-full p-2.5 transition-colors z-10 shadow-md focus:outline-none focus:ring-2 focus:ring-black"
                     aria-label={`Previous image: ${product.name}`}
                   >
-                    <ChevronLeft className="h-6 w-6 text-gray-800" aria-hidden="true" />
+                    <ChevronLeft className="h-6 w-6 text-black" aria-hidden="true" />
                   </button>
                   <button
                     onClick={nextImage}
-                    className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white rounded-full p-2 transition-colors z-10 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/90 hover:bg-white text-black rounded-full p-2.5 transition-colors z-10 shadow-md focus:outline-none focus:ring-2 focus:ring-black"
                     aria-label={`Next image: ${product.name}`}
                   >
-                    <ChevronRight className="h-6 w-6 text-gray-800" aria-hidden="true" />
+                    <ChevronRight className="h-6 w-6 text-black" aria-hidden="true" />
                   </button>
 
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
@@ -208,8 +208,8 @@ const ProductDetail = () => {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-2 h-2 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-indigo-500 ${
-                          index === currentImageIndex ? 'bg-white' : 'bg-white/50'
+                        className={`w-2.5 h-2.5 rounded-full transition-all focus:outline-none focus:ring-2 focus:ring-black ${
+                          index === currentImageIndex ? 'bg-black w-6' : 'bg-gray-400 hover:bg-gray-600'
                         }`}
                         aria-label={`Go to image ${index + 1} of ${productImages.length}: ${product.name}`}
                         aria-pressed={index === currentImageIndex}
@@ -219,36 +219,43 @@ const ProductDetail = () => {
                 </>
               )}
             </div>
-            <div className="absolute top-4 right-4 bg-indigo-600 text-white px-4 py-2 rounded-full z-10">
+            <div className="absolute top-4 right-4 bg-black text-white px-4 py-1.5 rounded-full z-10 text-xs font-bold uppercase tracking-wider shadow-sm">
               {product.category}
             </div>
           </div>
           
-          <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
-            <p className="text-xl text-gray-600 mb-8">{product.description}</p>
+          <div className="flex flex-col justify-center">
+            <span className="text-xs font-bold text-black uppercase tracking-wider mb-2">
+              {product.category}
+            </span>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-black mb-6 tracking-tight">
+              {product.name}
+            </h1>
+            <p className="text-lg sm:text-xl text-black leading-relaxed mb-8">
+              {product.description}
+            </p>
             
-            <div className="space-y-6">
-              <div className="flex items-center text-gray-700">
-                <Shield className="h-6 w-6 mr-2 text-indigo-600" />
+            <div className="space-y-4 mb-10">
+              <div className="flex items-center text-black font-medium">
+                <Shield className="h-6 w-6 mr-3 text-black flex-shrink-0" />
                 <span>Certified Medical Equipment</span>
               </div>
-              <div className="flex items-center text-gray-700">
-                <Clock className="h-6 w-6 mr-2 text-indigo-600" />
+              <div className="flex items-center text-black font-medium">
+                <Clock className="h-6 w-6 mr-3 text-black flex-shrink-0" />
                 <span>Fast Shipping Available</span>
               </div>
-              <div className="flex items-center text-gray-700">
-                <Settings className="h-6 w-6 mr-2 text-indigo-600" />
+              <div className="flex items-center text-black font-medium">
+                <Settings className="h-6 w-6 mr-3 text-black flex-shrink-0" />
                 <span>Technical Support Included</span>
               </div>
             </div>
 
-            <div className="mt-8">
+            <div>
               <Link
                 to="/contact?service=medical"
-                className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-md shadow-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-300"
+                className="inline-flex items-center px-8 py-4 rounded-xl text-lg font-semibold shadow-lg text-white bg-black hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-black transition-all duration-200"
               >
-                <MessageSquare className="h-6 w-6 mr-2" />
+                <MessageSquare className="h-6 w-6 mr-2.5" />
                 Request Information
               </Link>
             </div>
@@ -337,13 +344,13 @@ const ProductDetail = () => {
       </AnimatePresence>
 
       {/* Detailed Information */}
-      <div className="bg-white py-16">
+      <div className="bg-white py-20 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Tabs */}
           <div
             role="tablist"
             aria-label="Product information"
-            className="flex flex-wrap justify-center gap-4 mb-12"
+            className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-16"
           >
             {getAvailableTabs().map(({ id, label, icon: Icon }) => (
               <button
@@ -353,20 +360,20 @@ const ProductDetail = () => {
                 aria-selected={activeTab === id}
                 aria-controls={`panel-${id}`}
                 onClick={() => setActiveTab(id)}
-                className={`inline-flex items-center px-6 py-3 rounded-lg transition-colors ${
+                className={`inline-flex items-center px-6 py-3.5 rounded-xl text-sm font-semibold transition-all ${
                   activeTab === id
-                    ? 'bg-indigo-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                    ? 'bg-black text-white shadow-md'
+                    : 'bg-white text-black hover:bg-gray-100 border border-gray-300'
                 }`}
               >
-                <Icon className="h-5 w-5 mr-2" aria-hidden="true" />
+                <Icon className="h-5 w-5 mr-2.5" aria-hidden="true" />
                 {label}
               </button>
             ))}
           </div>
 
           {/* Tab Content */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
+          <div className="bg-white rounded-2xl shadow-xl border border-gray-200 p-8 sm:p-14">
             {/* Overview Tab */}
             <div
               id="panel-overview"
@@ -374,17 +381,17 @@ const ProductDetail = () => {
               aria-labelledby="tab-overview"
               className={activeTab === 'overview' ? 'block' : 'hidden'}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Product Overview</h2>
-              <p className="text-gray-600 mb-8">{product.overview}</p>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-black mb-6">Product Overview</h2>
+              <p className="text-black text-base sm:text-lg leading-relaxed mb-10">{product.overview}</p>
 
               {product.testAdvantages && (
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Test Advantages</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="mt-10">
+                  <h3 className="text-xl font-bold text-black mb-6">Advantages</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.entries(product.testAdvantages).map(([key, value]) => (
-                      <div key={key} className="flex justify-between border-b border-gray-200 pb-2">
-                        <dt className="font-medium text-gray-600">{key}</dt>
-                        <dd className="text-gray-900">{value}</dd>
+                      <div key={key} className="flex justify-between border-b border-gray-200 pb-3">
+                        <dt className="font-bold text-black">{key}</dt>
+                        <dd className="text-black">{value}</dd>
                       </div>
                     ))}
                   </div>
@@ -392,11 +399,11 @@ const ProductDetail = () => {
               )}
 
               {product.packageContents && (
-                <div className="mt-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Package Contents</h3>
-                  <ul className="list-disc list-inside space-y-2 text-gray-600">
+                <div className="mt-10">
+                  <h3 className="text-xl font-bold text-black mb-6">Package Contents</h3>
+                  <ul className="list-disc list-inside space-y-3 text-black text-base leading-relaxed">
                     {product.packageContents.map((item, index) => (
-                      <li key={index}>{item}</li>
+                      <li key={index} className="text-black">{item}</li>
                     ))}
                   </ul>
                 </div>
@@ -410,12 +417,12 @@ const ProductDetail = () => {
               aria-labelledby="tab-features"
               className={activeTab === 'features' ? 'block' : 'hidden'}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Key Features</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-black mb-8">Key Features</h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {product.features?.map((feature, index) => (
                   <div key={index} className="flex items-start">
-                    <Zap className="h-5 w-5 text-indigo-600 mt-1 mr-3 flex-shrink-0" />
-                    <span className="text-gray-700">{feature}</span>
+                    <Zap className="h-5 w-5 text-black mt-1 mr-3.5 flex-shrink-0" />
+                    <span className="text-black font-medium leading-relaxed">{feature}</span>
                   </div>
                 ))}
               </div>
@@ -428,18 +435,18 @@ const ProductDetail = () => {
               aria-labelledby="tab-clinical"
               className={activeTab === 'clinical' ? 'block' : 'hidden'}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Clinical Information</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-black mb-8">Clinical Information</h2>
               
               {product.clinicalInfo && (
-                <div className="space-y-8">
+                <div className="space-y-10">
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Global Impact</h3>
-                    <p className="text-gray-600">{product.clinicalInfo.globalImpact}</p>
+                    <h3 className="text-xl font-bold text-black mb-4">Global Impact</h3>
+                    <p className="text-black leading-relaxed">{product.clinicalInfo.globalImpact}</p>
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Consequences</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <h3 className="text-xl font-bold text-black mb-4">Consequences</h3>
+                    <ul className="list-disc list-inside space-y-2 text-black">
                       {product.clinicalInfo.consequences?.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
@@ -447,8 +454,8 @@ const ProductDetail = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-4">Clinical Challenges</h3>
-                    <ul className="list-disc list-inside space-y-2 text-gray-600">
+                    <h3 className="text-xl font-bold text-black mb-4">Clinical Challenges</h3>
+                    <ul className="list-disc list-inside space-y-2 text-black">
                       {product.clinicalInfo.challenges?.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
@@ -457,16 +464,16 @@ const ProductDetail = () => {
 
                   {product.clinicalInfo.diseaseProfiles && (
                     <div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-4">Disease Profiles</h3>
+                      <h3 className="text-xl font-bold text-black mb-6">Disease Profiles</h3>
                       <div className="space-y-6">
                         {Object.entries(product.clinicalInfo.diseaseProfiles).map(([key, profile]) => (
-                          <div key={key} className="bg-gray-50 rounded-lg p-6">
-                            <h4 className="text-lg font-semibold text-gray-900 mb-4">{profile.name}</h4>
+                          <div key={key} className="bg-gray-50 rounded-xl p-8 border border-gray-200">
+                            <h4 className="text-lg font-bold text-black mb-4">{profile.name}</h4>
                             <div className="space-y-4">
                               {profile.symptoms.men && (
                                 <div>
-                                  <h5 className="font-medium text-gray-900 mb-2">Male Symptoms:</h5>
-                                  <ul className="list-disc list-inside space-y-1 text-gray-600">
+                                  <h5 className="font-bold text-black mb-2">Male Symptoms:</h5>
+                                  <ul className="list-disc list-inside space-y-1 text-black">
                                     {profile.symptoms.men.map((symptom, index) => (
                                       <li key={index}>{symptom}</li>
                                     ))}
@@ -475,8 +482,8 @@ const ProductDetail = () => {
                               )}
                               {profile.symptoms.women && (
                                 <div>
-                                  <h5 className="font-medium text-gray-900 mb-2">Female Symptoms:</h5>
-                                  <ul className="list-disc list-inside space-y-1 text-gray-600">
+                                  <h5 className="font-bold text-black mb-2">Female Symptoms:</h5>
+                                  <ul className="list-disc list-inside space-y-1 text-black">
                                     {profile.symptoms.women.map((symptom, index) => (
                                       <li key={index}>{symptom}</li>
                                     ))}
@@ -485,8 +492,8 @@ const ProductDetail = () => {
                               )}
                               {profile.symptoms.general && (
                                 <div>
-                                  <h5 className="font-medium text-gray-900 mb-2">General Symptoms:</h5>
-                                  <ul className="list-disc list-inside space-y-1 text-gray-600">
+                                  <h5 className="font-bold text-black mb-2">General Symptoms:</h5>
+                                  <ul className="list-disc list-inside space-y-1 text-black">
                                     {profile.symptoms.general.map((symptom, index) => (
                                       <li key={index}>{symptom}</li>
                                     ))}
@@ -510,16 +517,30 @@ const ProductDetail = () => {
               aria-labelledby="tab-specs"
               className={activeTab === 'specs' ? 'block' : 'hidden'}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-black mb-8">Technical Specifications</h2>
               
               {product.specifications && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">General Specifications</h3>
+                <div className="mb-10">
+                  <h3 className="text-xl font-bold text-black mb-6">General Specifications</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.entries(product.specifications).map(([key, value], index) => (
                       <div key={index} className="flex justify-between border-b border-gray-200 pb-4">
-                        <dt className="font-medium text-gray-600">{key}</dt>
-                        <dd className="text-gray-900">{value}</dd>
+                        <dt className="font-bold text-black">{key}</dt>
+                        <dd className="text-black">{value}</dd>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {product.technicalSpecs && (
+                <div className="mb-10">
+                  <h3 className="text-xl font-bold text-black mb-6">Engineering and Operating Parameters</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {Object.entries(product.technicalSpecs).map(([key, value], index) => (
+                      <div key={index} className="flex justify-between border-b border-gray-200 pb-4">
+                        <dt className="font-bold text-black">{key}</dt>
+                        <dd className="text-black">{value}</dd>
                       </div>
                     ))}
                   </div>
@@ -527,16 +548,16 @@ const ProductDetail = () => {
               )}
 
               {product.storage && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Storage Requirements</h3>
-                  <p className="text-gray-600">{product.storage}</p>
+                <div className="mb-10">
+                  <h3 className="text-xl font-bold text-black mb-4">Storage Requirements</h3>
+                  <p className="text-black leading-relaxed">{product.storage}</p>
                 </div>
               )}
 
               {product.shelfLife && (
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Shelf Life</h3>
-                  <p className="text-gray-600">{product.shelfLife}</p>
+                  <h3 className="text-xl font-bold text-black mb-4">Shelf Life & Lifespan</h3>
+                  <p className="text-black leading-relaxed">{product.shelfLife}</p>
                 </div>
               )}
             </div>
@@ -548,16 +569,16 @@ const ProductDetail = () => {
               aria-labelledby="tab-certifications"
               className={activeTab === 'certifications' ? 'block' : 'hidden'}
             >
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Certifications & Performance</h2>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-black mb-8">Certifications & Performance</h2>
               
               {product.certifications && (
-                <div className="mb-8">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Certifications</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="mb-10">
+                  <h3 className="text-xl font-bold text-black mb-6">Certifications</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {product.certifications.map((cert, index) => (
-                      <div key={index} className="flex items-center bg-gray-50 p-4 rounded-lg">
-                        <Award className="h-5 w-5 text-indigo-600 mr-3" />
-                        <span className="text-gray-700">{cert}</span>
+                      <div key={index} className="flex items-center bg-gray-50 border border-gray-200 p-5 rounded-xl">
+                        <Award className="h-6 w-6 text-black mr-3.5 flex-shrink-0" />
+                        <span className="text-black font-bold">{cert}</span>
                       </div>
                     ))}
                   </div>
@@ -566,12 +587,12 @@ const ProductDetail = () => {
 
               {product.performance && (
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-4">Performance Metrics</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <h3 className="text-xl font-bold text-black mb-6">Performance Metrics</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.entries(product.performance).map(([key, value], index) => (
-                      <div key={index} className="flex justify-between border-b border-gray-200 pb-2">
-                        <dt className="font-medium text-gray-600">{key}</dt>
-                        <dd className="text-gray-900">{renderPerformanceValue(value)}</dd>
+                      <div key={index} className="flex justify-between border-b border-gray-200 pb-3">
+                        <dt className="font-bold text-black">{key}</dt>
+                        <dd className="text-black">{renderPerformanceValue(value)}</dd>
                       </div>
                     ))}
                   </div>

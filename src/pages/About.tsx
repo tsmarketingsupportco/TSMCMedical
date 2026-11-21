@@ -6,7 +6,7 @@ import { useSEO } from '../hooks/useSEO';
 const About = () => {
   useSEO({
     title: 'About Us',
-    description: 'Learn about TSMC Medical Supply — a division of TwinJ3 Sales and Marketing Corp. providing medical equipment and diagnostic tools across the Philippines since 2011.',
+    description: 'Learn about TSMC Medical Supply, a division of TwinJ3 Sales and Marketing Corp. providing medical equipment and diagnostic tools across the Philippines since 2011.',
   });
 
   return (
@@ -76,7 +76,7 @@ const About = () => {
 
               <div className="bg-indigo-50 rounded-lg p-6 border-l-4 border-indigo-600">
                 <p className="text-gray-700 leading-relaxed italic">
-                  "We don't just supply medical equipment—we empower healthcare professionals with the tools, knowledge, and support they need to save lives and improve patient outcomes every single day."
+                  "We don't just supply medical equipment; we empower healthcare professionals with the tools, knowledge, and support they need to save lives and improve patient outcomes every single day."
                 </p>
               </div>
 
@@ -115,7 +115,7 @@ const About = () => {
                 <div className="flex items-start">
                   <Heart className="h-6 w-6 text-indigo-600 mr-3 flex-shrink-0 mt-1" />
                   <p className="text-gray-700">
-                    <strong>Patient-Centric Approach:</strong> Every product we recommend and every solution we provide is driven by one goal—improving patient care and clinical outcomes.
+                    <strong>Patient-Centric Approach:</strong> Every product we recommend and every solution we provide is driven by one goal: improving patient care and clinical outcomes.
                   </p>
                 </div>
               </div>
